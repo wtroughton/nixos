@@ -11,15 +11,20 @@
   # Select internationalization properties
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = false;
+  networking.interfaces.wlan0.useDHCP = true;
+  networking.networkmanager.enable = true;
+
   users.users.alice = {
     isNormalUser = true;
     initialPassword = "password";
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" "networkmanager" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
+  environment.systemPackages = with pkgs; [ vim ];
 
   # Allow nixpkgs to install and search proprietary software 
   nixpkgs.config.allowUnfree = true;

@@ -7,5 +7,5 @@ The single-source-of-truth configuration running my OS.
 
 ## Resources
 
-[hlissner/dotfiles](https://github.com/hlissner/dotfiles)
-[Minimalistic NixOS Flake](https://github.com/colemickens/nixos-flake-example)
++ [hlissner/dotfiles](https://github.com/hlissner/dotfiles)
++ [Minimalistic NixOS Flake](https://github.com/colemickens/nixos-flake-example)
