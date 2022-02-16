@@ -1,11 +1,25 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-{
-  imports = [ ../modules/desktop/sway.nix ];
+with lib;
+
+let cfg = config.modules;
+
+in {
+  imports = [ ../modules/desktop/sway.nix ../modules/shell/zsh.nix ];
 
   modules = {
-    desktop = {
-      sway.enable = true;
+    desktop = { sway.enable = true; };
+
+    shell = {
+      zsh = {
+        enable = true;
+
+        loginShellInit = optionalString cfg.desktop.sway.enable ''
+          if [ "$(tty)" = "/dev/tty1" ] ; then
+            exec sway
+          fi
+        '';
+      };
     };
   };
 
@@ -14,7 +28,5 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = [
-    pkgs.htop
-  ];
+  home.packages = [ pkgs.htop ];
 }
