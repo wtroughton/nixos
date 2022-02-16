@@ -17,6 +17,9 @@
       pkgs = import nixpkgs { inherit system; };
 
     in {
+      nixosModules = {
+        sway = import ./modules/desktop/sway.nix;
+      };
       nixosConfigurations = {
         HAL = nixpkgs.lib.nixosSystem {
           inherit system;

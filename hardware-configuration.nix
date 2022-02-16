@@ -38,9 +38,14 @@
 
   # Power management
   environment.systemPackages = [ pkgs.acpi ];
+
   # Enable powertop auto tuning on startup.
   powerManagement.powertop.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+  # Enable touchpad support
+  services.xserver.libinput.enable = true;
+  services.xserver.libinput.touchpad.naturalScrolling = true;
 
   # high-resolution display
   hardware.video.hidpi.enable = lib.mkDefault true;

@@ -22,9 +22,21 @@
     isNormalUser = true;
     initialPassword = "password";
     extraGroups = [ "wheel" "networkmanager" ];
+    shell = pkgs.zsh;
   };
 
+  # Enabling zsh system-wide allows it to source necessary files
+  # e.g. autocompletion, docs
+  programs.zsh.enable = true;
+
   environment.systemPackages = with pkgs; [ vim ];
+
+  # Sway requires OpenGL enabled for MESA drivers
+  # https://github.com/NixOS/nixpkgs/issues/94315
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
 
   # Allow nixpkgs to install and search proprietary software 
   nixpkgs.config.allowUnfree = true;

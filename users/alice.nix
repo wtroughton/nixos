@@ -1,14 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  # imports = [
-  #   profiles/apps/media.nix
-  #   profiles/alacritty.nix
-  # ];
+  imports = [ ../modules/desktop/sway.nix ];
 
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  # home.homeDirectory = "/home/alice";
+  modules = {
+    desktop = {
+      sway.enable = true;
+    };
+  };
 
   home.stateVersion = "22.05";
 
