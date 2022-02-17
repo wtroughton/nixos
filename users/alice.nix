@@ -5,7 +5,11 @@ with lib;
 let cfg = config.modules;
 
 in {
-  imports = [ ../modules/desktop/sway.nix ../modules/shell/zsh.nix ];
+  imports = [
+    ../modules/desktop/sway.nix
+    ../modules/shell/git.nix
+    ../modules/shell/zsh.nix
+  ];
 
   xdg.enable = true;
 
@@ -22,6 +26,7 @@ in {
           fi
         '';
       };
+      git.enable = true;
     };
   };
 
@@ -30,11 +35,7 @@ in {
     enable = true;
     server.enable = true;
 
-    settings = {
-      main = {
-        font = "Iosevka Extended:size=10";
-      };
-    };
+    settings = { main = { font = "Iosevka Extended:size=10"; }; };
   };
 
   home.stateVersion = "22.05";

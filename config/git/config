@@ -1,0 +1,7 @@
+[user]
+	name = Winston Troughton
+	email = winston@wlt.dev
+[init]
+	defaultBranch = main
+[github]
+	user = wtroughton

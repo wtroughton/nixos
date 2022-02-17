@@ -29,7 +29,7 @@
   # e.g. autocompletion, docs
   programs.zsh.enable = true;
 
-  environment.systemPackages = with pkgs; [ vim ];
+  environment.systemPackages = with pkgs; [ git unzip vim wget ];
 
   # Sway requires OpenGL enabled for MESA drivers
   # https://github.com/NixOS/nixpkgs/issues/94315
