@@ -29,7 +29,6 @@ in {
       git.enable = true;
     };
   };
-
   fonts.fontconfig.enable = true;
   programs.foot = {
     enable = true;
@@ -50,6 +49,7 @@ in {
     # terminal emulator
     foot
 
+    firefox-wayland
     htop
   ];
 }
