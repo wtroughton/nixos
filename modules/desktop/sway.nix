@@ -14,7 +14,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    xdg.configFile."sway/config".source = ../../config/sway/default;
+    xdg.configFile."sway/config".source = ../../config/sway/config;
 
     home.packages = [ pkgs.sway ];
 

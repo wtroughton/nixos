@@ -7,6 +7,8 @@ let cfg = config.modules;
 in {
   imports = [ ../modules/desktop/sway.nix ../modules/shell/zsh.nix ];
 
+  xdg.enable = true;
+
   modules = {
     desktop = { sway.enable = true; };
 
@@ -23,10 +25,30 @@ in {
     };
   };
 
+  fonts.fontconfig.enable = true;
+  programs.foot = {
+    enable = true;
+    server.enable = true;
+
+    settings = {
+      main = {
+        font = "Iosevka Extended:size=10";
+      };
+    };
+  };
+
   home.stateVersion = "22.05";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = [ pkgs.htop ];
+  home.packages = with pkgs; [
+    # fonts
+    iosevka
+
+    # terminal emulator
+    foot
+
+    htop
+  ];
 }
