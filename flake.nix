@@ -5,9 +5,11 @@
   description = "System and user configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager }:
@@ -32,6 +34,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.alice = import ./users/alice.nix;
             }
+	    agenix.nixosModules.age
           ];
         };
       };
