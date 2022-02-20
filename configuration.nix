@@ -5,7 +5,7 @@ let inherit (inputs) agenix;
 in {
   networking.hostName = "HAL";
 
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ./openvpn.nix ];
 
   # Set time zone
   time.timeZone = "America/New_York";
@@ -38,6 +38,9 @@ in {
     wget
     agenix.defaultPackage.x86_64-linux
   ];
+
+  # Set Vim as default editor
+  environment.variables.EDITOR = "vim";
 
   # Sway requires OpenGL enabled for MESA drivers
   # https://github.com/NixOS/nixpkgs/issues/94315
