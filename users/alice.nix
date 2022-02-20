@@ -46,10 +46,11 @@ in {
     # fonts
     iosevka
 
+    firefox-wayland
+
     # terminal emulator
     foot
 
-    firefox-wayland
     htop
   ];
 }

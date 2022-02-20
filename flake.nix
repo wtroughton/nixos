@@ -12,19 +12,18 @@
     agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nixpkgs, home-manager, agenix }:
     let
       system = "x86_64-linux";
 
       pkgs = import nixpkgs { inherit system; };
 
     in {
-      nixosModules = {
-        sway = import ./modules/desktop/sway.nix;
-      };
+      nixosModules = { sway = import ./modules/desktop/sway.nix; };
       nixosConfigurations = {
         HAL = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; };
 
           modules = [
             ./configuration.nix
@@ -34,7 +33,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.alice = import ./users/alice.nix;
             }
-	    agenix.nixosModules.age
+            agenix.nixosModules.age
           ];
         };
       };

@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
-{
+let inherit (inputs) agenix;
+
+in {
   networking.hostName = "HAL";
 
   imports = [ ./hardware-configuration.nix ];
@@ -29,7 +31,13 @@
   # e.g. autocompletion, docs
   programs.zsh.enable = true;
 
-  environment.systemPackages = with pkgs; [ git unzip vim wget ];
+  environment.systemPackages = with pkgs; [
+    git
+    unzip
+    vim
+    wget
+    agenix.defaultPackage.x86_64-linux
+  ];
 
   # Sway requires OpenGL enabled for MESA drivers
   # https://github.com/NixOS/nixpkgs/issues/94315

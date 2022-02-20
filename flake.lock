@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "agenix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1643841757,
+        "narHash": "sha256-9tKhu4JzoZvustC9IEWK6wKcDhPLuK/ICbLgm8QnLnk=",
+        "owner": "ryantm",
+        "repo": "agenix",
+        "rev": "a17d1f30550260f8b45764ddbd0391f4b1ed714a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ryantm",
+        "repo": "agenix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -22,22 +42,23 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1644992370,
-        "narHash": "sha256-6UmwHOboRwAUMyGNA+vBihf8mDW+paeKXtJkIPXQTog=",
+        "lastModified": 1644613700,
+        "narHash": "sha256-wLRPJclMH8vsHuFtyI78aF09lw5mbi3lMB6uiK5S2wE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4687b2ed82c90c135595cc0487b12d643991d542",
+        "rev": "23d785aa6f853e6cf3430119811c334025bbef55",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable-small",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
+        "agenix": "agenix",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }
