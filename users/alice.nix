@@ -34,7 +34,7 @@ in {
     enable = true;
     server.enable = true;
 
-    settings = { main = { font = "Iosevka Extended:size=10"; }; };
+    settings = { main = { font = "Iosevka Extended:size=12"; }; };
   };
 
   home.stateVersion = "22.05";
@@ -45,6 +45,8 @@ in {
   home.packages = with pkgs; [
     # fonts
     iosevka
+    font-awesome
+    tex-gyre.heros
 
     firefox-wayland
 

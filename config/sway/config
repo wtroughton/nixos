@@ -50,6 +50,14 @@ input "type:keyboard" {
   repeat_delay 240
 }
 
+### Output configuration
+#
+# Configure display output. Read `man 5 sway-output` for more.
+
+output "eDP-1" {
+  scale 1.5
+}
+
 ### Key bindings
 #
 # Basics:
@@ -62,6 +70,15 @@ input "type:keyboard" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Toggle audio volume
+    # bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    # bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    # bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+    # Toggle brightness
+    bindsym XF86MonBrightnessDown exec brightnessctl s 2500-
+    bindsym XF86MonBrightnessUp exec brightnessctl s +2500
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -193,15 +210,6 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    swaybar_command yambar
+    height 24
 }

@@ -15,8 +15,9 @@ in {
 
   config = mkIf cfg.enable {
     xdg.configFile."sway/config".source = ../../config/sway/config;
+    xdg.configFile."yambar/config.yml".source = ../../config/sway/yambar.yml;
 
-    home.packages = [ pkgs.sway ];
+    home.packages = with pkgs; [ sway yambar ];
 
     systemd.user.targets.sway-session = {
       Unit = {

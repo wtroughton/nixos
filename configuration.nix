@@ -32,11 +32,13 @@ in {
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
+    agenix.defaultPackage.x86_64-linux
+    brightnessctl
+
     git
     unzip
     vim
     wget
-    agenix.defaultPackage.x86_64-linux
   ];
 
   # Set Vim as default editor
