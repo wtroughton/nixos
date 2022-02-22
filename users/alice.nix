@@ -6,6 +6,7 @@ let cfg = config.modules;
 
 in {
   imports = [
+    ../modules/browser/firefox.nix
     ../modules/desktop/sway.nix
     ../modules/shell/git.nix
     ../modules/shell/zsh.nix
@@ -28,7 +29,10 @@ in {
       };
       git.enable = true;
     };
+
+    browser.firefox.enable = true;
   };
+
   fonts.fontconfig.enable = true;
   programs.foot = {
     enable = true;
@@ -47,8 +51,6 @@ in {
     iosevka
     font-awesome
     tex-gyre.heros
-
-    firefox-wayland
 
     # terminal emulator
     foot
