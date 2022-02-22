@@ -20,6 +20,15 @@ in {
   networking.interfaces.wlan0.useDHCP = true;
   networking.networkmanager.enable = true;
 
+  # rtkit is optional but recommended for pipewire performance
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   users.users.alice = {
     isNormalUser = true;
     initialPassword = "password";
@@ -34,6 +43,7 @@ in {
   environment.systemPackages = with pkgs; [
     agenix.defaultPackage.x86_64-linux
     brightnessctl
+    pulseaudio
 
     git
     unzip
