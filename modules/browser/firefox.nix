@@ -36,7 +36,9 @@ in
               2800: SHUTDOWN & SANITIZING
               5000: OPTIONAL OPSEC
               9000: PERSONAL
-          */
+
+          /* 0000: disable about:config warning */
+          "browser.aboutConfig.showWarning" = false; 
 
           ### [SECTION 0100]: STARTUP ###
           /* 0101: disable default browser check */
@@ -70,8 +72,9 @@ in
           "browser.newtabpage.activity-stream.feeds.discoverystreamfeed"        = false; 
           "browser.newtabpage.activity-stream.showSponsoredTopSites"            = false; 
 
-          /* 0106: clear default top sites
+          /* 0106: clear default top sites */
           "browser.newtabpage.activity-stream.default.sites" = "";
+          "browser.urlbar.suggest.topsites" = false;
 
           ### [SECTION 0300]: QUIETER FIREFOX ###
           /* 0320: disable recommendation pane in about:addons (uses Google Analytics) */
