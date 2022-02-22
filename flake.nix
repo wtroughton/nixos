@@ -32,6 +32,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.alice = import ./users/alice.nix;
+              home-manager.users.lee   = import ./users/lee.nix;
             }
             agenix.nixosModules.age
           ];

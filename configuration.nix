@@ -29,11 +29,20 @@ in {
     pulse.enable = true;
   };
 
-  users.users.alice = {
-    isNormalUser = true;
-    initialPassword = "password";
-    extraGroups = [ "wheel" "networkmanager" ];
-    shell = pkgs.zsh;
+  users.users = { 
+    alice = {
+      isNormalUser = true;
+      initialPassword = "password";
+      extraGroups = [ "wheel" "networkmanager" ];
+      shell = pkgs.zsh;
+    };
+
+    lee = {
+      isNormalUser = true;
+      initialPassword = "password";
+      extraGroups = [ "wheel" "networkmanager" ];
+      shell = pkgs.zsh;
+    };
   };
 
   # Enabling zsh system-wide allows it to source necessary files
@@ -50,6 +59,20 @@ in {
     vim
     wget
   ];
+
+  # System fonts
+  fonts = {
+    fontconfig.enable = true;
+
+    fonts = with pkgs; [
+      font-awesome
+      ibm-plex
+      inter
+      iosevka
+      roboto
+      tex-gyre.heros
+    ];
+  };
 
   # Set Vim as default editor
   environment.variables.EDITOR = "vim";
