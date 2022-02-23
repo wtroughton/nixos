@@ -48,7 +48,11 @@ in {
   home.packages = with pkgs; [
     # terminal emulator
     foot
+    fuzzel
 
     htop
+
+    # ConTeXt typesetting engine
+    texlive.combined.scheme-context
   ];
 }

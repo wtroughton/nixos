@@ -28,5 +28,22 @@ in {
         After = [ "graphical-session-pre.target" ];
       };
     };
+
+    systemd.user.services.yambar = {
+      Unit = {
+        Description = "Lightweight modular status panel";
+        Documentation = "man:yambar(1)";
+        BindsTo = [ "sway-session.target" ];
+        After   = [ "sway-session.target" ];
+      };
+      
+      Service = {
+        ExecStart = "${pkgs.yambar}/bin/yambar";
+      };
+
+      Install = {
+        WantedBy = [ "sway-session.target" ];
+      };
+    };
   };
 }
