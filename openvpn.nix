@@ -6,6 +6,7 @@
 {
   age.secrets.BytzVPN.file = ./secrets/BytzVPN.age;
   age.secrets.BytzVPNAtlanta.file = ./secrets/BytzVPNAtlanta.ovpn.age;
+  # TODO: IdentityPath should be based on $user instead of hardcoded
   age.identityPaths = [ "/home/alice/.ssh/id_ed25519" ];
 
   services.openssh.enable = true;
