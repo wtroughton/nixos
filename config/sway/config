@@ -56,6 +56,7 @@ input "type:keyboard" {
 # Configure display output. Read `man 5 sway-output` for more.
 
 output "eDP-1" {
+  background ~/.config/wallpaper.png fill
   scale 1.5
 }
 
@@ -169,6 +170,17 @@ output "eDP-1" {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+#
+# General:
+#
+    default_border pixel 1
+
+    # If smart_borders is on, borders will be enabled if workspace has more
+    # than one visible child. If set to no_gaps, borders will only be enabled
+    # if workspace has more than one visible child and gaps equal to zero.
+    smart_borders no_gaps
+
 #
 # Scratchpad:
 #
