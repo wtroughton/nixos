@@ -1,6 +1,6 @@
 awesome: &awesome Font Awesome 5 Free:style=solid:pixelsize=20
 awesome_brands: &awesome_brands Font Awesome 5 Brands:pixelsize=22
-std_underline: &std_underline {underline: { size: 2, color: ff0000ff}}
+std_underline: &std_underline {underline: { size: 2, color: dd00ffff}}
 
 bar:
   location: bottom
@@ -23,7 +23,7 @@ bar:
           - string: &mail    {<<: *i3_common, text: , font: *awesome}
           - string: &music   {<<: *i3_common, text: , font: *awesome}
           - focused: &focused
-              deco: {stack:  [background: {color: ffa0a04c}, <<: *std_underline]}
+              deco: {stack:  [background: {color: dda1ff4c}, <<: *std_underline]}
           - invisible: &invisible {foreground: ffffff55}
           - urgent: &urgent
               foreground: 000000ff
