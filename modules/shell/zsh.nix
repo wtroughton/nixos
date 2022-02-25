@@ -2,7 +2,11 @@
 
 with lib;
 
-let cfg = config.modules.shell.zsh;
+let 
+  cfg = config.modules.shell.zsh;
+  aliasesStr = concatStringsSep "\n" (
+    mapAttrsToList (k: v: "alias ${k}=${lib.escapeShellArg v}") cfg.shellAliases
+  );
 
 in {
   options.modules.shell.zsh = {
@@ -18,11 +22,29 @@ in {
       '';
       type = types.lines;
     };
+
+    shellAliases = mkOption {
+      default = {};
+      description = ''
+        An attribute set mapping aliases to command strings.
+      '';
+      example = literalExpression ''
+        {
+          ll = "ls -l";
+          ".." = "cd ..";
+        }
+      '';
+      type = types.attrsOf types.str;
+    };
   };
 
   config = mkIf cfg.enable {
     home.file.".zlogin".text = ''
       ${cfg.loginShellInit}
+    '';
+    
+    home.file.".zshrc".text = ''
+      ${aliasesStr}
     '';
   };
 }

@@ -9,6 +9,7 @@ in {
     ../modules/browser/firefox.nix
     ../modules/desktop/sway.nix
     ../modules/shell/git.nix
+    ../modules/shell/neovim.nix
     ../modules/shell/zsh.nix
   ];
 
@@ -26,8 +27,15 @@ in {
             exec sway
           fi
         '';
+
+        shellAliases = {
+          ls = "ls --color=auto";
+          vim = "nvim";
+        };
       };
+
       git.enable = true;
+      neovim.enable = true;
     };
 
     browser.firefox.enable = true;
@@ -39,6 +47,8 @@ in {
 
     settings = { main = { font = "Iosevka Extended:size=12"; }; };
   };
+
+  programs.zathura.enable = true;
 
   home.stateVersion = "22.05";
 
