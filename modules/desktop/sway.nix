@@ -29,6 +29,7 @@ in {
       };
     };
 
+    # TODO: Configure environment variables to enable Sway IPC on-click response
     systemd.user.services.yambar = {
       Unit = {
         Description = "Lightweight modular status panel";

@@ -49,6 +49,10 @@ in {
   # e.g. autocompletion, docs
   programs.zsh.enable = true;
 
+  # Enable for gnome3.dconf system service. Necessary for GTK related
+  # settings: https://github.com/NixOS/nixpkgs/issues/41886
+  programs.dconf.enable = true;
+
   environment.systemPackages = with pkgs; [
     agenix.defaultPackage.x86_64-linux
     brightnessctl
@@ -92,6 +96,9 @@ in {
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+
+    settings.substituters = [ "https://hydra.iohk.io" "https://iohk.cachix.org" ];
+    settings.trusted-public-keys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo=" ];
   };
 
   # This value determines the NixOS release from which the default

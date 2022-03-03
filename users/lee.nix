@@ -50,17 +50,32 @@ in {
 
   programs.zathura.enable = true;
 
+  gtk = {
+    enable = true;
+    iconTheme = { 
+      name = "hicolor";
+      package = pkgs.hicolor_icon_theme;
+    };
+  };
+
   home.stateVersion = "22.05";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    castor
+
     # terminal emulator
     foot
     fuzzel
 
     htop
+
+    kiwix
+    mdbook
+
+    spotify
 
     # ConTeXt typesetting engine
     texlive.combined.scheme-context
