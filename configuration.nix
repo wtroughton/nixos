@@ -12,6 +12,10 @@ in {
 
   # Select internationalization properties
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [ bamboo ];
+  };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -96,9 +100,6 @@ in {
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-
-    settings.substituters = [ "https://hydra.iohk.io" "https://iohk.cachix.org" ];
-    settings.trusted-public-keys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo=" ];
   };
 
   # This value determines the NixOS release from which the default

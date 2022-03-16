@@ -48,6 +48,11 @@ in {
     settings = { main = { font = "Iosevka Extended:size=12"; }; };
   };
 
+  programs.mpv = {
+    enable = true;
+    package = pkgs.wrapMpv (pkgs.mpv-unwrapped.override { vapoursynthSupport = true; }) { youtubeSupport = true; };
+  };
+
   programs.zathura.enable = true;
 
   gtk = {
@@ -75,9 +80,14 @@ in {
     kiwix
     mdbook
 
+    ranger
+
     spotify
+    skypeforlinux
 
     # ConTeXt typesetting engine
     texlive.combined.scheme-context
+
+    zoom-us
   ];
 }
